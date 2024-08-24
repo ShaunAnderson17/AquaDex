@@ -1,0 +1,162 @@
+{% extends "aquadex/home.html" %}
+
+{% block content %}
+<style>
+
+    .us-region-title {
+        margin-left: 2rem;
+        font-weight: bold;
+    }
+
+    .rbtncontainer 
+    {
+      margin-top: 2rem;
+      margin-left: 1rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: flex-start;
+      display: flex;
+    }
+    .btnbrowsealsk
+    {
+        display: inline-block;
+        padding: 2rem 7.8rem; 
+        background-color: #367b81;
+        color: #E9E3E5;
+        border: 2.5px groove #222222;
+        font-size: 1.75rem;
+        font-family: "Yrsa";
+    }
+
+    .btnbrowsealsk:hover 
+    {
+        background-color: rgba(10, 198, 158, .15);
+        color: #5513d0;
+        border: 2.5px groove #222222;
+        box-shadow: rgba(27, 8, 120,.2) 2.5px 3px;
+    }
+
+    .btnbrowsese
+    {
+        display: inline-block;
+        padding: 2rem 6.4rem; 
+        background-color: #367b81;
+        color: #E9E3E5;
+        border: 2.5px groove #222222;
+        font-size: 1.75rem;
+        font-family: "Yrsa";
+    }
+
+    .btnbrowsese:hover 
+    {
+        background-color: rgba(10, 198, 158, .15);
+        color: #5513d0;
+        border: 2.5px groove #222222;
+        box-shadow: rgba(27, 8, 120,.2) 2.5px 3px;
+    }
+
+    .btnbrowsenema
+    {
+        display: inline-block;
+        padding: 2rem 1rem; 
+        background-color: #367b81;
+        color: #E9E3E5;
+        border: 2.5px groove #222222;
+        font-size: 1.75rem;
+        font-family: "Yrsa";
+    }
+
+    .btnbrowsenema:hover
+    {
+        background-color: rgba(10, 198, 158, .15);
+        color: #5513d0;
+        border: 2.5px groove #222222;
+        box-shadow: rgba(27, 8, 120,.2) 2.5px 3px;
+    }
+
+    .btnbrowsewc 
+    {
+        display: inline-block;
+        padding: 2rem 6.4rem; 
+        background-color: #367b81;
+        color: #E9E3E5;
+        border: 2.5px groove #222222;
+        font-size: 1.75rem;
+        font-family: "Yrsa";
+    }
+
+    .btnbrowsewc:hover 
+    {
+        background-color: rgba(10, 198, 158, .15);
+        color: #5513d0;
+        border: 2.5px groove #222222;
+        box-shadow: rgba(27, 8, 120,.2) 2.5px 3px;
+    }
+
+    .btnbrowsepi 
+    {
+        display: inline-block;
+        padding: 2rem 5.3rem; 
+        background-color: #367b81;
+        color: #E9E3E5;
+        border: 2.5px groove #222222;
+        font-size: 1.75rem;
+        font-family: "Yrsa";
+    }
+
+    .btnbrowsepi:hover 
+    {
+        background-color: rgba(10, 198, 158, .15);
+        color: #5513d0;
+        border: 2.5px groove #222222;
+        box-shadow: rgba(27, 8, 120,.2) 2.5px 3px;
+    }
+
+    .btnbrowsef 
+    {
+        display: inline-block;
+        padding: 2rem 7.6rem; 
+        background-color: #367b81;
+        color: #E9E3E5;
+        border: 2.5px groove #222222;
+        font-size: 1.75rem;
+        font-family: "Yrsa";
+    }
+   
+    .btnbrowsef:hover 
+    {
+        background-color: rgba(10, 198, 158, .15);
+        color: #5513d0;
+        border: 2.5px groove #222222;
+        box-shadow: rgba(27, 8, 120,.2) 2.5px 3px;
+    }
+</style>
+<h1 class="us-region-title">
+    United States:
+</h1>
+<div class="rbtncontainer">
+    <a href="{% url 'alaska' %}" class="btnbrowsealsk">
+        Alaska
+    </a>
+
+    <a href="{% url 'southeast' %}" class="btnbrowsese">
+        South East
+    </a>
+
+    <a href="{% url 'westcoast' %}" class="btnbrowsewc">
+        West Coast
+    </a>
+
+    <a href="{% url 'newenglandmidatlantic' %}" class="btnbrowsenema">
+        New England/Mid-Atlantic
+    </a>
+
+    <a href="{% url 'pacificislands' %}" class="btnbrowsepi">
+        Pacific Islands
+    </a>
+
+    <a href="{% url 'foreign' %}" class="btnbrowsef">
+        Foreign
+    </a>
+</div>
+{% endblock %}

@@ -1,0 +1,324 @@
+{% load static %}
+{% load customtags %}
+<!DOCTYPE html>
+
+
+<head> 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Yrsa:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    .navagationbar-custom {
+        background-color: #1b303c;
+        height: 16rem;
+    }
+
+    .navagationbar-custom a {
+        color: #69C1C5;
+        font-size: 3rem;
+        font-family: 'Sansita Swashed';
+        position: relative;
+        height: 3rem;
+    }
+    
+    .navagationbar-custom img {
+        height: 52px;
+        width: 170px;
+        margin-left:1rem;
+        margin-bottom:1rem;
+    }
+
+    .prof img {
+        height: 100px;
+        width: auto;
+        margin-right:3rem;
+    }
+
+    .species-card {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 2rem;
+    }
+
+    .spname {
+        color: #E9E3E5;
+        font-family: "Montserrat";
+        margin-bottom: 1rem;
+        border-bottom: 3px solid #E9E3E5;
+        text-shadow: 1.5px 1.5px 3.2px #2e0670;
+        font-size: 45px;
+    }
+
+    .spimg {
+        width: 450px;
+        height: 450px;
+        margin-bottom: 1rem;
+        border: 3px solid silver;
+        box-shadow: 1.5px 1.5px 3px #1c0555;
+    }
+
+    .tax-title {
+        color: #E9E3E5;
+        font-family: "Montserrat";
+        border-bottom: 3px solid #E9E3E5;
+        width: 170px;
+        margin-bottom: 1rem;
+        text-shadow: 1.5px 1.5px 3.2px #2e0670; 
+    }
+
+    .tax {
+        color: #E9E3E5;
+        font-family: "Montserrat";
+        width: 360px;
+        height: 75px;
+        font-size: 21px;
+        border: 3px solid #120089;
+        padding: 5px; 
+        margin-bottom: 1rem; 
+        text-shadow: 1.5px 1.5px 3.2px #2e0670;
+        background-color: rgba(54, 126, 152, 0.8);
+        box-shadow: 1.5px 1.5px 3px #1c0555;
+    }
+
+    .char-title {
+        color: #E9E3E5;
+        font-family: "Montserrat";
+        border-bottom: 3px solid #E9E3E5;
+        width: 218px;
+        margin-bottom: 1rem;
+        text-shadow: 1.5px 1.5px 3.2px #2e0670;
+        margin-left: 60rem;
+        margin-top: -116.5rem;
+    }
+
+    .char {
+        color: #E9E3E5;
+        font-family: "Montserrat";
+        font-size: 21px;
+        width: 575px;
+        height: 100px;
+        border: 3px solid #120089;
+        padding: 5px;
+        text-shadow: 1.5px 1.5px 3.2px #2e0670;
+        margin-left: 60rem; 
+        background-color: rgba(54, 126, 152, 0.8);
+        box-shadow: 1.5px 1.5px 3px #1c0555;
+    }
+
+    .heatmap-title {
+        color: #E9E3E5;
+        font-family: "Monsterrat";
+        border-bottom: 3px solid #E9E3E5;
+        width: 105px;
+        text-shadow: 1.5px 1.5px 3.2px #2e0670;
+        margin-bottom: 1rem;
+        margin-left: 164rem;
+        margin-top: -169.6rem;
+    }
+
+    .heatmap {
+        width: 725px;
+        height: 368px;
+        border: 3px solid silver;
+        margin-bottom: 1rem;
+        text-shadow: 1.5px 1.5px 3.2px #2e0670;
+        margin-left: 135rem;
+        box-shadow: 1.5px 1.5px 3px #1c0555;
+    }
+
+    .conmea-title {
+        color: #E9E3E5;
+        font-family: "Monsterrat";
+        border-bottom: 3px solid #E9E3E5;
+        width: 300px;
+        margin-bottom: 1rem;
+        text-shadow: 1.5px 1.5px 3.2px #2e0670;
+        margin-left: 156rem;
+        margin-top: 3rem;
+    }
+
+    .conmea-measures {
+        color: #E9E3E5;
+        font-family: "Monsterrat";
+        width: 725px;
+        height: 368px;
+        font-size: 23px;
+        border: 3px solid silver;
+        box-shadow: 1.5px 1.5px 3px #1c0555;
+        padding: 5px;
+        margin-bottom: 1rem;
+        text-shadow: 1.5px 1.5px 3.2px #2e0670;
+        margin-left: 135rem;
+        overflow: auto;
+        background-color: rgba(54, 126, 152, 0.8);
+    }
+
+    .status-title {
+        color: #E9E3E5;
+        font-family: "Monsterrat";
+        border-bottom: 3px solid #E9E3E5;
+        width: 225px;
+        text-shadow: 1.5px 1.5px 3.2px #2e0670;
+        margin-left: 155rem;
+        margin-top: 3rem;
+    }
+
+    .status-gauge {
+        border: 3px solid silver;
+        box-shadow: 1.5px 1.5px 3px #1c0555;
+        margin-bottom: 3rem;
+        margin-left: 135rem; 
+    }
+    
+    .status-gauge img {
+        width: 725px;
+        height: 300px;
+    }
+    .er-title {
+        color: #E9E3E5;
+        font-family: "Monsterrat";
+        border-bottom: 3px solid #E9E3E5;
+        width: 225px;
+        text-shadow: 1.5px 1.5px 3.2px #2e0670;
+        margin-left: 165rem;
+        margin-top: 3rem;
+    }
+    .er {
+        margin-left: 145rem;
+        color: #E9E3E5;
+        font-family: "Montserrat";
+        font-size: 21px;
+        width: 575px;
+        height: 170px;
+        border: 3px solid #120089;
+        padding: 5px;
+        text-shadow: 1.5px 1.5px 3.2px #2e0670;
+        background-color: rgba(54, 126, 152, 0.8);
+        box-shadow: 1.5px 1.5px 3px #1c0555;
+        padding-bottom: 3rem;
+    }
+
+    .banner {
+        width:238rem;
+        padding: 10px;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        font-size: 20px; 
+        margin-top:-2rem;
+        margin-left:-2rem;
+    }
+
+    .banner-vulnerable {
+        background-color: orange;
+    }
+
+    .banner-endangered {
+        background-color: orangered;
+    }
+
+    .banner-critically-endangered {
+        background-color: red;
+    }
+</style>
+
+<html>
+<body>
+    <nav class="navbar navagationbar-custom">
+        <div class="container-fluid">
+            <a class="home" href="{% url 'home' %}">
+                <img src="{% static 'aquadex/Screenshot 2024-04-23 185532.png' %}" alt="Aquadex">
+            </a>
+            <a class="browse" href="{% url 'browse' %}">Browse</a>
+            <a class="conmea" href="{% url 'conmea' %}">Conservation Measures</a>
+            <form class="d-flex" action="{% url 'search' %}" method="get">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
+                <button style="border-color:#05b43e;" class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <div class="prof">
+                <a href="{% url 'profile' %}">
+                    <img src="{% static 'aquadex/Profile Picture.png' %}" alt="Profile Picture" />
+                </a>
+            </div>
+        </div>
+    </nav>
+    {% block content %} 
+    <div class="species-card">
+        {% if status %}
+        {% if status.status == 'Vulnerable' %}
+        <div class="banner banner-vulnerable">Vulnerable</div>
+        {% elif status.status == 'Endangered' %}
+        <div class="banner banner-endangered">Endangered</div>
+        {% elif status.status == 'Critically Endangered' %}
+        <div class="banner banner-critically-endangered">Critically Endangered</div>
+        {% endif %}
+        {% endif %}
+        <h1 class="spname">{{ species.name }}</h1>
+        <img class="spimg" src="{{ image.img.url }}">
+        <h2 class="tax-title">Taxonomy</h2>
+        <p class="tax">Class: <br /> {{ species.taxonomy.class }}</p>
+        <p class="tax">Genus: <br /> {{ species.taxonomy.genus }}</p>
+        <p class="tax">Order: <br /> {{ species.taxonomy.order }}</p>
+        <p class="tax">Family: <br /> {{ species.taxonomy.family }}</p>
+        <p class="tax">Phylum: <br /> {{ species.taxonomy.phylum }}</p>
+        <p class="tax">Kingdom: <br /> {{ species.taxonomy.kingdom }}</p>
+        <p class="tax">Scientific name: <br /> {{ species.taxonomy.scientific_name }} </p>
+        <h2 class="char-title">Characteristics</h2>
+        <p class="char">Diet: {{ species.characteristics.diet }}</p>
+        <p class="char">Type: {{ species.characteristics.type }}</p>
+        <p class="char">Color: {{ species.characteristics.color }}</p>
+        <p class="char">Height: {{ species.characteristics.height }}</p>
+        <p class="char">Weight: {{ species.characteristics.weight }}</p>
+        <p class="char">Name of young: {{ species.characteristics.name_of_young }}</p>
+        <p class="char">Slogan: {{ species.characteristics.slogan }}</p>
+        <p class="char">Lifespan: {{ species.characteristics.lifespan }}</p>
+        <p class="char">Lifestyle: {{ species.characteristics.lifestyle }}</p>
+        <p class="char">Skin type: {{ species.characteristics.skin_type }}</p>
+        <p class="char">Top speed: {{ species.characteristics.top_speed }}</p>
+        <p class="char">Most distinctive feature: {{species.characteristics.most_distinctive_feature}}</p>
+        <p class="char">Age of sexual maturity: {{species.characteristics.age_of_sexual_maturity}}</p>
+        <p class="char">Average reproductive output: {{species.characteristics.average_litter_size}}</p>
+        <p class="char">Estimated population size: {{species.characteristics.estimated_population_size}}</p>
+        <h2 class="heatmap-title">Heatmap</h2>
+        <div class="heatmap">
+            {% IncludeHeatmap species.taxonomy.scientific_name %}
+        </div>
+        <h2 class="conmea-title">Conservation Measures</h2>
+        {% if conmea %}
+        <p class="conmea-measures">{{ conmea.measures }}</p>
+        {% else %}
+        <p class="conmea-measures">No conservation measures found.</p>
+        {% endif %}
+        <h2 class="status-title">Endangered Status</h2>
+        <div class="status-gauge">
+            {% if status %}
+            {% for key, value in statusImages.items %}
+            {% if status.status == key %}
+            <div>
+                <img src="{% static value %}">
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <h2 class="er-title">Ecological Role</h2>
+    <p class="er">Main prey: {{ species.characteristics.main_prey }}</p>
+    <p class="er">Predators: {{ species.characteristics.predators }}</p>
+    <p class="er">Habitats: {{ species.characteristics.habitat }}</p>
+    <p class="er">Biggest threat: {{ species.characteristics.biggest_threat }}</p>
+    <br /> 
+</body>
+</html>
+{% endblock %}

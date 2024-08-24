@@ -1,0 +1,70 @@
+{% load static %} 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <style>
+        html, body {
+            width: 100px;
+            height: 100px;
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 20rem;
+            bottom: 20rem;
+            right: 40rem;
+            left: 40rem;
+        }
+
+        body {
+            background-color: #328890;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+        var map = L.map('map', {
+            center: [57.3229, -4.4244],
+            zoom: 8,
+        });
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 19,
+        }).addTo(map);
+
+        var purpleIcon = L.icon({
+            iconUrl: '{% static "aquadex/Location_dot_purple.png" %}',
+            iconSize: [25, 27],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+        });
+
+        var sightings = [
+            [57.3229, -4.4244],
+            [57.3220, -4.4250],
+            [57.3230, -4.4230],
+            [57.3200, -4.4200],
+            [57.3480, -4.3900],
+            [57.3300, -4.4100],
+            [57.3700, -4.3850],
+            [57.3900, -4.3500],
+            [57.3800, -4.3650],
+            [57.2300, -4.5500],
+            [57.2700, -4.4900],
+        ];
+
+        sightings.forEach(function (location) {
+            L.marker(location, { icon: purpleIcon }).addTo(map)
+                .bindPopup("Loch Ness Monster Sighting");
+        });
+    </script>
+</body>
+</html>

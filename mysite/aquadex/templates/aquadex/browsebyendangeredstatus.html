@@ -1,0 +1,232 @@
+{% extends "aquadex/home.html" %}
+
+{% block content %}
+<style>
+    .esbtncontainer 
+    {
+        margin-top: 2rem;
+      margin-left: 1rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: flex-start;
+      display: flex;
+    }
+
+    .btnbrowselc 
+    {
+        display: inline-block;
+        padding: 2rem 8.2rem; 
+        background-color: #367b81;
+        color: #E9E3E5;
+        border: 2.5px groove #222222;
+        font-size: 1.75rem;
+        font-family: "Yrsa";
+    }
+
+    .btnbrowselc:hover 
+    {
+        background-color: rgba(10, 198, 158, .15);
+        color: #5513d0;
+        border: 2.5px groove #222222;
+        box-shadow: rgba(27, 8, 120,.2) 2.5px 3px;
+    }
+
+    .btnbrowsee
+    {
+        display: inline-block;
+        padding: 2rem 9rem; 
+        background-color: #367b81;
+        color: #E9E3E5;
+        border: 2.5px groove #222222;
+        font-size: 1.75rem;
+        font-family: "Yrsa";
+    }
+
+    .btnbrowsee:hover 
+    {
+        background-color: rgba(10, 198, 158, .15);
+        color: #5513d0;
+        border: 2.5px groove #222222;
+        box-shadow: rgba(27, 8, 120,.2) 2.5px 3px;
+    }
+
+    .btnbrowseex
+    {
+        display: inline-block;
+        padding: 2rem 10.6rem; 
+        background-color: #367b81;
+        color: #E9E3E5;
+        border: 2.5px groove #222222;
+        font-size: 1.75rem;
+        font-family: "Yrsa";
+    }
+
+    .btnbrowseex:hover 
+    {
+        background-color: rgba(10, 198, 158, .15);
+        color: #5513d0;
+        border: 2.5px groove #222222;
+        box-shadow: rgba(27, 8, 120,.2) 2.5px 3px;
+    }
+
+    .btnbrowsent 
+    {
+        display: inline-block;
+        padding: 2rem 7.4rem; 
+        background-color: #367b81;
+        color: #E9E3E5;
+        border: 2.5px groove #222222;
+        font-size: 1.75rem;
+        font-family: "Yrsa";
+    }
+
+    .btnbrowsent:hover 
+    {
+        background-color: rgba(10, 198, 158, .15);
+        color: #5513d0;
+        border: 2.5px groove #222222;
+        box-shadow: rgba(27, 8, 120,.2) 2.5px 3px;
+    }
+
+    .btnbrowsece
+    {
+        display: inline-block;
+        padding: 2rem 5.7rem; 
+        background-color: #367b81;
+        color: #E9E3E5;
+        border: 2.5px groove #222222;
+        font-size: 1.75rem;
+        font-family: "Yrsa";
+    }
+
+    .btnbrowsece:hover 
+    {
+        background-color: rgba(10, 198, 158, .15);
+        color: #5513d0;
+        border: 2.5px groove #222222;
+        box-shadow: rgba(27, 8, 120,.2) 2.5px 3px;
+    }
+
+    .btnbrowselrlc
+    {
+        display: inline-block;
+        padding: 2rem 4.2rem; 
+        background-color: #367b81;
+        color: #E9E3E5;
+        border: 2.5px groove #222222;
+        font-size: 1.75rem;
+        font-family: "Yrsa";
+    }
+
+    .btnbrowselrlc:hover
+    {
+        background-color: rgba(10, 198, 158, .15);
+        color: #5513d0;
+        border: 2.5px groove #222222;
+        box-shadow: rgba(27, 8, 120,.2) 2.5px 3px;
+    }
+
+    .btnbrowsedd 
+    {
+        display: inline-block;
+        padding: 2rem 7rem; 
+        background-color: #367b81;
+        color: #E9E3E5;
+        border: 2.5px groove #222222;
+        font-size: 1.75rem;
+        font-family: "Yrsa";
+    }
+
+    .btnbrowsedd:hover 
+    {
+        background-color: rgba(10, 198, 158, .15);
+        color: #5513d0;
+        border: 2.5px groove #222222;
+        box-shadow: rgba(27, 8, 120,.2) 2.5px 3px;
+    }
+
+    .btnbrowsev 
+    {
+        display: inline-block;
+        padding: 2rem 9.6rem; 
+        background-color: #367b81;
+        color: #E9E3E5;
+        border: 2.5px groove #222222;
+        font-size: 1.75rem;
+        font-family: "Yrsa";
+    }
+    
+    .btnbrowsev:hover 
+    {
+        background-color: rgba(10, 198, 158, .15);
+        color: #5513d0;
+        border: 2.5px groove #222222;
+        box-shadow: rgba(27, 8, 120,.2) 2.5px 3px;
+    }
+
+    .btnbrowseeitw
+    {
+        display: inline-block;
+        padding: 2rem 6.8rem; 
+        background-color: #367b81;
+        color: #E9E3E5;
+        border: 2.5px groove #222222;
+        font-size: 1.75rem;
+        font-family: "Yrsa";
+    }
+    
+    .btnbrowseeitw:hover
+    {
+        background-color: rgba(10, 198, 158, .15);
+        color: #5513d0;
+        border: 2.5px groove #222222;
+        box-shadow: rgba(27, 8, 120,.2) 2.5px 3px;
+    }
+
+    .btnbrowselrnt
+    {
+        display: inline-block;
+        padding: 2rem 3.5rem; 
+        background-color: #367b81;
+        color: #E9E3E5;
+        border: 2.5px groove #222222;
+        font-size: 1.75rem;
+        font-family: "Yrsa";
+    }
+    
+    .btnbrowselrnt:hover 
+    {
+        background-color: rgba(10, 198, 158, .15);
+        color: #5513d0;
+        border: 2.5px groove #222222;
+        box-shadow: rgba(27, 8, 120,.2) 2.5px 3px;
+    }
+</style>
+
+<div class="esbtncontainer">
+    <a href="{% url 'leastconcern' %}" class="btnbrowselc">
+        Least Concern
+    </a>
+
+    <a href="{% url 'endangered' %}" class="btnbrowsee">
+        Endangered
+    </a>
+      
+    <a href="{% url 'nearthreatened' %}" class="btnbrowsent">
+        Near Threatened
+    </a>
+
+    <a href="{% url 'criticallyendangered' %}" class="btnbrowsece">
+        Critically Endangered
+    </a> 
+
+    <a href="{% url 'datadeficient' %}" class="btnbrowsedd">
+        Data Deficient
+    </a>
+
+    <a href="{% url 'vulnerable' %}" class="btnbrowsev">
+        Vulnerable
+    </a>
+     
+</div>
+{% endblock %}

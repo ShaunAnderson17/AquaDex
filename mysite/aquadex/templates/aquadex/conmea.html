@@ -1,0 +1,44 @@
+{% extends "aquadex/home.html" %}
+
+{% block content %}
+<style>
+    .con-name {
+        color: #E9E3E5;
+        font-family: "Montserrat";
+        margin-bottom: 2rem;
+        text-shadow: 1.5px 1.5px 3.2px #3d0d67;
+    }
+
+    .measures {
+        color: #E9E3E5;
+        font-family: "Montserrat";
+        border: 3px solid #1f1e1e;
+        padding: 5px;
+        margin-bottom: 2rem;
+        text-shadow: 1.5px 1.5px 3.2px #3d0d67;
+        width: 130rem;
+        font-size: 25px;
+        box-shadow: 1.5px 1.5px 3px #1c0555;
+        background-color: rgba(54, 126, 152, 0.8);
+    }
+</style>
+<body> 
+    <ul>
+        {% for item in speciesWithConmea %}
+        <li>
+            <h2 class="con-name">{{ item.species.name }} - {{ item.species.taxonomy.scientific_name }}</h2> 
+            {% if item.conmeas %}
+            <ul>
+                {% for conmea in item.conmeas %}
+                <li class="measures">Conservation Measures: {{ conmea.measures }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="measures">No conservation measures found.</p>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+
+</body>
+{% endblock %}

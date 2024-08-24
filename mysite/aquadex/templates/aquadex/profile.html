@@ -1,0 +1,66 @@
+{% extends "aquadex/home.html" %}
+ 
+{% block content %}
+<style>
+    .auth-links {
+        display: flex;
+        flex-direction: column;
+        margin-left:1rem;
+        margin-top: 3rem;
+    }
+
+    .signup {
+        color: #E9E3E5;
+        font-size: 30px;
+        font-family: "Montserrat";
+        margin-left: 2rem;
+    }
+
+    .signin {
+        color: #E9E3E5;
+        font-size: 30px;
+        font-family: "Montserrat";
+        margin-left: 2rem;
+    }
+
+    .logout {
+        color: #E9E3E5;
+        font-size: 30px;
+        font-family: "Montserrat";
+        margin-left: 2rem;
+    }
+
+    .changepsswrd {
+        color: #E9E3E5;
+        font-size: 30px;
+        font-family: "Montserrat";
+        margin-left: 2rem;
+    }
+
+    .warning {
+        color: #a01800;
+        font-family: "Monsterrat";
+        width: 120rem; 
+        border: 3px solid silver;
+        box-shadow: 1.5px 1.5px 3px #1c0555;
+        padding: 5px; 
+        text-shadow: 1.5px 1.5px 3.2px #2e0670; 
+        margin-left: 13rem;
+    }
+</style>
+<h1 class="warning"> 
+    *Warning: I do not recommend signing up for an account, as it is not very secure. It is not necessary to use the site;
+    it was implemented as a learning exercise. However, if you want to try it, I recommend not using the same email and
+    password as for your bank account.*
+</h1>
+<div class="auth-links">
+    <a class="signup" href="{% url 'signup' %}">Sign up</a>
+    <a class="signin" href="{% url 'signin' %}">Sign in</a>
+    {% if user.is_authenticated %}
+    <a class="logout" href="{% url 'logout' %}">Logout</a>
+    <a href="{% url 'changepassword' %}" class="changepsswrd">Change Password</a>
+    {% endif %}
+
+</div> 
+     
+{% endblock %}

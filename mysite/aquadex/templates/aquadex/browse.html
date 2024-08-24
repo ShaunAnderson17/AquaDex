@@ -1,0 +1,80 @@
+{% extends "aquadex/home.html" %}
+
+{% block content %}
+ <style> 
+     .btnbrowsespecies
+     {
+         display: inline-block;
+         padding: 2rem 6.4rem; 
+         margin-top: 4rem;
+         margin-left: 1rem;
+         background-color: #367b81;
+         color: #E9E3E5;
+         border: 2.5px groove #222222;
+         font-size: 1.75rem;
+         font-family: "Yrsa";
+     }
+
+     .btnbrowsespecies:hover 
+     {
+         background-color: rgba(10, 198, 158, .15);
+         color: #5513d0;
+         border: 2.5px groove #222222;
+         box-shadow: rgba(27, 8, 120,.2) 2.5px 3px;
+     }
+
+
+     .btnbrowseregion 
+     {
+         display: inline-block;
+         padding: 2rem 6.5rem; 
+         margin-top: 4rem;
+         background-color: #367b81;
+         color: #E9E3E5;
+         border: 2.5px groove #222222;
+         font-size: 1.75rem;
+         font-family: "Yrsa";
+     }
+     
+     .btnbrowseregion:hover 
+     {
+         background-color: rgba(10, 198, 158, .15);
+         color: #5513d0;
+         border: 2.5px groove #222222;
+         box-shadow: rgba(27, 8, 120,.2) 2.5px 3px;
+     }
+
+     .btnbrowseendstat 
+     {
+         display: inline-block;
+         padding: 2rem 2.5rem;  
+         margin-top: 4rem;
+         background-color: #367b81;
+         color: #E9E3E5;
+         border: 2.5px groove #222222;
+         font-size: 1.75rem;
+         font-family: "Yrsa";
+     }
+
+     .btnbrowseendstat:hover 
+     {
+         background-color: rgba(10, 198, 158, .15);
+         color: #5513d0;
+         border: 2.5px groove #222222;
+         box-shadow: rgba(27, 8, 120,.2) 2.5px 3px;
+     }
+ </style>
+
+ <div>
+     <a href="{% url 'browsebyspecies' %}" class="btnbrowsespecies">
+         Browse by Species
+     </a>  
+     <a href="{% url 'browsebyregion' %}" class="btnbrowseregion">
+         Browse by Region
+     </a>
+     <a href="{% url 'browsebyendangeredstatus' %}" class="btnbrowseendstat">
+         Browse by Endangered Status
+     </a>
+ </div>
+
+ {% endblock %}

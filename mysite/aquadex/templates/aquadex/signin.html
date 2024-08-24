@@ -1,0 +1,80 @@
+{% extends "aquadex/home.html" %}
+
+{% block content %}
+<style>
+    .usrnme {
+        width: 410px;
+        height: 70px;
+        background-color: #224957;
+        color: #E9E3E5;
+        box-shadow: rgba(27, 8, 120, .2) 2px 2.5px;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 2.5rem;
+    }
+
+    .psswrd {
+        width: 420px;
+        height: 70px;
+        background-color: #224957;
+        color: #E9E3E5;
+        box-shadow: rgba(27, 8, 120, .2) 2px 2.5px;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .signinbtn {
+        width: 150px;
+        height: 35px;
+        background-color: #20DF7F;
+        box-shadow: rgba(27, 8, 120, .2) 2px 2.5px;
+        border: none;
+        border-radius: 5px;
+        margin-left: 140px;
+    }
+
+    .container {
+        padding: 20px;
+        border-radius: 5px;
+        width: 450px;
+        margin: 0 auto;
+    }
+
+    .text {
+        padding-top: 90px;
+        padding-left: 150px;
+        padding-bottom: 20px;
+        color: #E9E3E5;
+        font-family: "Montserrat";
+    }
+</style>
+<body>
+    <div class="container">
+        <h2 class="text">
+            Sign In
+        </h2>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div>
+                <input type="text" name="username" placeholder="  Username" class="usrnme">
+            </div>
+            <div class="input-group mb-2">
+                <input type="password" name="password" placeholder="  Password" class="psswrd">
+            </div>
+
+            <input class="signinbtn" type="submit" name="Create User" value="Sign In" />
+
+            {% for message in messages %}
+            <p id="messages">{{message}}</p>
+            {% endfor %}
+
+            <div class="mt-4">
+                <div class="d-flex justify-content-center links">
+                    Don't have an account?
+                    <a href="{% url 'signup' %}" class="ml-2" style="color: #490cbb">Sign Up</a>
+                </div> 
+            </div>
+        </form>
+    </div>
+</body>
+{% endblock %}

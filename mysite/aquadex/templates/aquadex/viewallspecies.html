@@ -1,0 +1,30 @@
+{% extends "aquadex/home.html" %}
+{% load static %}
+{% block content %}
+<html>
+<head>
+    <title>
+        Browse Species
+    </title>
+</head>
+<body>
+    <div class="species-grid">
+        {% for item in speciesImages %}
+        <a href="{% url 'speciescard' item.id %}" class="spcard">
+            {% if item.image %}
+            <img src="{{ item.image.img.url }}" alt="{{ item.scientific_name }}">
+            {% else %}
+            <img src="{% static 'aquadex/Gerald.png' %}" alt="No Image Available">
+            {% endif %}
+            <h3>{{ item.common_name }}</h3>
+            <p>{{ item.scientific_name }}</p>
+            <div class="endangered-status {{ item.status_class }}">
+                {{ item.status_label }}
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    <button id="show-more" class="btn btn-primary btn-block">Show More Species</button>
+</body>
+</html>
+{% endblock %}
